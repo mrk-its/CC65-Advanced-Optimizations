@@ -11,5 +11,5 @@ clean:
 	-rm game.lbl
 	-rm game.o
 
-game.xex game.lst game.lbl game.o: game.c benchmark.h
-	cl65 -t atari  -Ln game.lbl ${CL65_OPTIMIZATION_FLAGS} --listing game.lst --add-source -o game.xex game.c
+game.xex game.lst game.lbl game.o: game.c
+	cl65 -I../utils/cc65/ ${CL65_OPTIMIZATION_FLAGS} -t atari -Ln game.lbl --listing game.lst --add-source -o game.xex game.c

@@ -8,11 +8,11 @@ void start_benchmark(void)
 wvb:
 	asm("cmp $14");
 	asm("beq %g", wvb);
-	
+
 	// reset timer
 	asm("lda #0");
 	asm("sta $13");
-	asm("sta $14");	
+	asm("sta $14");
 	asm("CLI");
 }
 
@@ -26,5 +26,6 @@ void end_benchmark(void)
 	asm("lda $13");
 	asm("sta %v+1", ticks);
 	asm("CLI");
-	printf("%u ticks", ticks);	
+	printf("%u ticks", ticks);
 }
+
