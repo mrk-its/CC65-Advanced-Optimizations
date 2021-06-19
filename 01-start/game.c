@@ -105,7 +105,7 @@ void main(void)
 
     s_game_state game_state;
 
-    screen_ptr = OS.savmsc;
+    screen_ptr = SAVMSC;
     set_entities(&game_state);
 
     start_benchmark();
@@ -113,5 +113,5 @@ void main(void)
         one_frame(&game_state, screen_ptr);
     end_benchmark();
 
-    for(;;);
+    
 }

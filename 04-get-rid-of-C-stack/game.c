@@ -115,7 +115,7 @@ void one_frame()
 void main(void)
 {
     unsigned char times;
-    screen_ptr = OS.savmsc;
+    screen_ptr = SAVMSC;
     set_entities();
 
     start_benchmark();
@@ -123,5 +123,5 @@ void main(void)
         one_frame();
     end_benchmark();
 
-    for(;;);
+    
 }

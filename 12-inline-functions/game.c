@@ -116,7 +116,7 @@ void one_frame()
 
 void init_lookup_tables()
 {
-    unsigned char *screen_ptr = OS.savmsc;
+    unsigned char *screen_ptr = SAVMSC;
     // init screen lookup
     for (index1 = 0; index1 < SCREEN_SIZE_Y; ++index1)
         screen_line_lookup[index1] = &screen_ptr[index1 * SCREEN_SIZE_X];
@@ -141,5 +141,5 @@ void main(void)
         one_frame();
     end_benchmark();
 
-    for(;;);
+    
 }
