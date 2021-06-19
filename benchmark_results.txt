@@ -1,0 +1,29 @@
+ 01-start
+ ticks: 10327846
+ 
+ 03-smallest-unsigned-data-types
+ ticks: 6054190
+ 
+ 04-get-rid-of-C-stack
+ ticks: 6206309
+ 
+ 05-replace-array-of-structs
+ ticks: 6095847
+ 
+ 06-get-rid-of-enums
+ ticks: 5957560
+ 
+ 08-get-rid-of-parameter-passing
+ ticks: 6079422
+ 
+ 09-replace-calculations-and-switches-with-lookup-tables
+ ticks: 1369552
+ 
+ 11-improve-array-access
+ ticks: 1301152
+ 
+ 12-inline-functions
+ ticks: 1018781
+ 
+ llvm-mos: c526a8b39702dc3c0a6b126c0f5d4e7e3c4dd0d7
+ llvm-mos-sdk: 57ffb62a4dc9bb4b7d03d9c88f9aefb923adc178
