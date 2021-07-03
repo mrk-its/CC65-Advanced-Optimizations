@@ -34,5 +34,9 @@
  cc65: 702467
  ticks: 989297
  
+ 14-llvm-mos-opts
+ cc65: 1913617
+ ticks: 649742
+ 
  llvm-mos: 83c91384d3572b7f2e044a4118a803356c4fe864
  llvm-mos-sdk: c0e3ece6293c7046df8578d33199c7f08377c02e

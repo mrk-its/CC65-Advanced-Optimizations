@@ -1,4 +1,4 @@
-SUBDIRS := 01-start 03-smallest-unsigned-data-types 04-get-rid-of-C-stack 05-replace-array-of-structs 06-get-rid-of-enums ./08-get-rid-of-parameter-passing ./09-replace-calculations-and-switches-with-lookup-tables 11-improve-array-access 12-inline-functions
+SUBDIRS := 01-start 03-smallest-unsigned-data-types 04-get-rid-of-C-stack 05-replace-array-of-structs 06-get-rid-of-enums ./08-get-rid-of-parameter-passing ./09-replace-calculations-and-switches-with-lookup-tables 11-improve-array-access 12-inline-functions 14-llvm-mos-opts
 CL65_OPTIMIZATION_FLAGS=-Osir -Cl
 
 all:	$(SUBDIRS)
