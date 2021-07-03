@@ -14,18 +14,18 @@
 #define ENTITY_DEAD 0
 #define ENTITY_PLAYER 1
 #define ENTITY_ENEMY 2
-typedef unsigned char e_entity_type;
+typedef char e_entity_type;
 
 // +1 for player
 typedef struct s_entity {
-    unsigned char x[NO_ENTITIES];
-    unsigned char y[NO_ENTITIES];
-    unsigned char hp[NO_ENTITIES];
+    char x[NO_ENTITIES];
+    char y[NO_ENTITIES];
+    char hp[NO_ENTITIES];
     e_entity_type type[NO_ENTITIES];
 } s_entity;
 
 typedef struct s_player {
-    unsigned char attack;
+    char attack;
 } s_player;
 
 
@@ -41,11 +41,11 @@ char get_entity_tile[] = {
 
 s_game_state game_state;
 
-unsigned char div_10_lookup[MAX_LOOKUP_VALUE];
-unsigned char mod_10_lookup[MAX_LOOKUP_VALUE];
-unsigned char *screen_line_lookup[SCREEN_SIZE_Y];
+char div_10_lookup[MAX_LOOKUP_VALUE];
+char mod_10_lookup[MAX_LOOKUP_VALUE];
+char *screen_line_lookup[SCREEN_SIZE_Y];
 
-void place_enemy(unsigned char index, char x, char y)
+void place_enemy(char index, char x, char y)
 {
     game_state.entities.x[index] = x;
     game_state.entities.y[index] = y;
@@ -53,7 +53,7 @@ void place_enemy(unsigned char index, char x, char y)
 
 void set_entities()
 {
-    unsigned char index;
+    char index;
     // set entities
     for (index = 0; index < NO_ENEMIES; index++)
     {
@@ -67,16 +67,16 @@ void set_entities()
     game_state.entities.type[PLAYER_INDEX] = ENTITY_PLAYER;
 };
 
-void draw_entity(unsigned char index)
+void draw_entity(char index)
 {
-    unsigned char *draw_ptr = screen_line_lookup[game_state.entities.y[index]] + game_state.entities.x[index];
-    unsigned char hp = game_state.entities.hp[index];
+    char *draw_ptr = screen_line_lookup[game_state.entities.y[index]] + game_state.entities.x[index];
+    char hp = game_state.entities.hp[index];
     *draw_ptr = get_entity_tile[game_state.entities.type[index]];
     *(++draw_ptr) = div_10_lookup[hp];
     *(++draw_ptr) = mod_10_lookup[hp];
 };
 
-void damage_enemy(unsigned char index)
+void damage_enemy(char index)
 {
     // damage
     if (game_state.entities.hp[index] > 0)
@@ -85,7 +85,7 @@ void damage_enemy(unsigned char index)
 
 void one_frame()
 {
-    unsigned char index;
+    char index;
     // draw enemies
     for (index = 0; index < NO_ENEMIES; index++)
     {
@@ -99,11 +99,11 @@ void one_frame()
 
 void init_lookup_tables()
 {
-    unsigned char *screen_ptr = SAVMSC;
-    unsigned char index1;
+    char *screen_ptr = (char *)SAVMSC;
+    char index1;
     // init screen lookup
     for (index1 = 0; index1 < SCREEN_SIZE_Y; ++index1)
-        screen_line_lookup[index1] = &screen_ptr[index1 * SCREEN_SIZE_X];
+        screen_line_lookup[index1] = screen_ptr + index1 * SCREEN_SIZE_X;
 
     for (index1 = 0; index1 < MAX_LOOKUP_VALUE; ++index1)
     {
@@ -114,10 +114,8 @@ void init_lookup_tables()
 
 void main(void)
 {
-    unsigned char *screen_ptr;
-    unsigned char times;
+    char times;
 
-    screen_ptr = SAVMSC;
     init_lookup_tables();
     set_entities();
 
