@@ -114,5 +114,5 @@ void main(void)
         one_frame(&game_state, screen_ptr);
     end_benchmark();
 
-    
+
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define SAVMSC OS.savmsc
 
 void start_benchmark(void)
 {
@@ -27,5 +28,6 @@ void end_benchmark(void)
 	asm("sta %v+1", ticks);
 	asm("CLI");
 	printf("%u ticks", ticks);
+        for(;;);
 }
 
