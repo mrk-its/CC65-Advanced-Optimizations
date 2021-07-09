@@ -13,8 +13,5 @@ void end_benchmark(void)
 {
     unsigned long ticks = clock();
     printf("ticks: %lu\n", ticks);
-#ifdef LOOP
-    for(;;);
-#endif
     exit(0);
 }

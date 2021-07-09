@@ -26,7 +26,7 @@ game.xex: game.c
 game-clang.xex: game.c
 	@../../llvm-mos/build/bin/clang ${CLANG_FLAGS} --config ../../llvm-mos-sdk/build/atari/800xl.cfg game.c -Wno-main-return-type -Wno-switch -I../utils/clang -o game-clang.xex
 
-run_sim: game.sim game-clang.xex game.xex
+run_sim: game.sim game-clang.xex
 	@echo -n " "; basename `pwd`
 	@echo " cc65:" $$((`cat ref.txt | grep cc65 | cut -d : -f 2` * 24223))
 	@echo " "`../../llvm-mos-sdk/build/bin/sim game.sim`
