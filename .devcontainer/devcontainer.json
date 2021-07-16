@@ -1,0 +1,6 @@
+{
+	"image": "clang-debian10:llvm-mos",
+	"extensions": [
+		"ms-vscode-remote.remote-containers"
+	]
+}
