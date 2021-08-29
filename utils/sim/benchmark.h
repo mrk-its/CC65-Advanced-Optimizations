@@ -13,5 +13,4 @@ void end_benchmark(void)
 {
     unsigned long ticks = clock();
     printf("ticks: %lu\n", ticks);
-    exit(0);
 }

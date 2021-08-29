@@ -21,18 +21,18 @@ clang:
 	llvm-objcopy --output-target binary --strip-unneeded a.out.elf a.out
 
 game.sim: game.c
-	@${CLANG} ${CLANG_FLAGS} --config ${SDK}sim.cfg game.c -Wno-main-return-type -Wno-switch -I../utils/sim -o game.sim
+	${CLANG} ${CLANG_FLAGS} --config ${SDK}sim.cfg game.c -Wno-main-return-type -Wno-switch -I../utils/sim -o game.sim
 
 game.xex: game.c
-	@cl65 -I../utils/cc65/ ${CL65_OPTIMIZATION_FLAGS} -t atari -Ln game.lbl --listing game.lst --add-source -o game.xex game.c
+	cl65 -I../utils/cc65/ ${CL65_OPTIMIZATION_FLAGS} -t atari -Ln game.lbl --listing game.lst --add-source -o game.xex game.c
 
 game-clang.xex: game.c
-	@${CLANG} ${CLANG_FLAGS} --config ${SDK}atari/800xl.cfg game.c -Wno-main-return-type -Wno-switch -I../utils/clang -o game-clang.xex
+	${CLANG} ${CLANG_FLAGS} --config ${SDK}atari/800xl.cfg game.c -Wno-main-return-type -Wno-switch -I../utils/clang -o game-clang.xex
 
 run_sim: game.sim game-clang.xex
 	@echo -n " "; basename `pwd`
 	@echo " cc65:" $$((`cat ref.txt | grep cc65 | cut -d : -f 2` * 24223))
-	@echo " "`timeout 10 ${SDK}bin/sim game.sim`
+	@echo " "`${SDK}bin/sim game.sim`
 	@echo " "
 
 .PHONY: all $(SUBDIRS)
