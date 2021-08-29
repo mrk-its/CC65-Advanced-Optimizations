@@ -1,8 +1,8 @@
 SUBDIRS := 01-start 03-smallest-unsigned-data-types 04-get-rid-of-C-stack 05-replace-array-of-structs 06-get-rid-of-enums ./08-get-rid-of-parameter-passing ./09-replace-calculations-and-switches-with-lookup-tables 11-improve-array-access 12-inline-functions 14-llvm-mos-opts
 CL65_OPTIMIZATION_FLAGS=-Osir -Cl
 
-CLANG=/usr/local/bin/clang
-SDK=/usr/local/llvm-mos-sdk/
+CLANG=../../llvm-mos/build/bin/clang
+SDK=../../llvm-mos-sdk/build/
 
 all:	$(SUBDIRS)
 	@echo " llvm-mos:" `cd ../llvm-mos; git rev-parse HEAD)`
@@ -32,7 +32,7 @@ game-clang.xex: game.c
 run_sim: game.sim game-clang.xex
 	@echo -n " "; basename `pwd`
 	@echo " cc65:" $$((`cat ref.txt | grep cc65 | cut -d : -f 2` * 24223))
-	@echo " "`${SDK}bin/sim game.sim`
+	@echo " "`timeout 10 ${SDK}bin/sim game.sim`
 	@echo " "
 
 .PHONY: all $(SUBDIRS)
