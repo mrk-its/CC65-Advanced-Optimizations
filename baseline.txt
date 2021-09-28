@@ -1,42 +1,42 @@
  01-start
  cc65: 9495416
- ticks: 10996650
+ ticks: 9979228
  
  03-smallest-unsigned-data-types
  cc65: 9204740
- ticks: 6036452
+ ticks: 5362068
  
  04-get-rid-of-C-stack
  cc65: 7848252
- ticks: 6072328
+ ticks: 5391308
  
  05-replace-array-of-structs
  cc65: 7388015
- ticks: 6234799
+ ticks: 5546419
  
  06-get-rid-of-enums
  cc65: 7170008
- ticks: 5995665
+ ticks: 5330255
  
  08-get-rid-of-parameter-passing
  cc65: 7194231
- ticks: 6259932
+ ticks: 5574402
  
  09-replace-calculations-and-switches-with-lookup-tables
  cc65: 1622941
- ticks: 1131976
+ ticks: 1131985
  
  11-improve-array-access
  cc65: 775136
- ticks: 1020776
+ ticks: 1020585
  
  12-inline-functions
  cc65: 702467
- ticks: 1218411
+ ticks: 1218181
  
  14-llvm-mos-opts
  cc65: 1913617
- ticks: 918987
+ ticks: 917727
  
- llvm-mos: 2fc63b0c44681022bb652be73ba2dae43379e913
+ llvm-mos: ba5e54088f3dd65f8e687252816c588386e72c30
  llvm-mos-sdk: bfd8bb6f6eb89661f89a86d60add2cb38984dfa2
